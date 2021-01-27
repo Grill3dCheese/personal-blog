@@ -1,0 +1,19 @@
+{
+  "name": "personal-blog",
+  "version": "1.0.0",
+  "description": "Blog Web Application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Grill3dCheese/personal-blog.git"
+  },
+  "author": "Keith McKenna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Grill3dCheese/personal-blog/issues"
+  },
+  "homepage": "https://github.com/Grill3dCheese/personal-blog#readme"
+}
