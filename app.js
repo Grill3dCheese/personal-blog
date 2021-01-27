@@ -11,5 +11,5 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => {
-  console.log(`*DING!!* Service your app LIVE at localhost:${port}`);
+  console.log(`*DING!!* Your app is now LIVE at localhost:${port}`);
 });
