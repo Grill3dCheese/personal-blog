@@ -1,6 +1,26 @@
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li {
+  margin: 0;
+}
+
+p {
+  font-size: 16px;
+}
+
 body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
   background: antiquewhite;
   font-family: monospace;
+  line-height: 1.5;
 }
 
 .test {
@@ -10,10 +30,8 @@ body {
 /* Layout */
 
 .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  max-width: 1200px;
+  flex-wrap: wrap;
   margin: auto;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -22,9 +40,7 @@ body {
 }
 
 .left-column {
-  width: 100%;
-  max-width: 250px;
-  height: 100vh;
+  flex: 0 1 200px;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -35,8 +51,6 @@ body {
 /* Navigation Bar - Left */
 
 .main-nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -73,4 +87,58 @@ i.fas.fa-redo-alt {
 
 i.fas.fa-pen-square {
   margin-right: 20px;
+}
+
+/* Main - Center */
+
+.center-column {
+  flex: 0 1 500px;
+  border-right: 1px solid #acacac;
+  border-left: 1px solid #acacac;
+}
+
+.header {
+  display: flex;
+  border-bottom: 1px solid #acacac;
+  position: -webkit-sticky;
+  position: sticky;
+  background: antiquewhite;
+  padding: 15px;
+  top: 0;
+}
+
+/* Right Sidebar */
+.right-column {
+  flex: 0 1 200px;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 600px) {
+  .left-column {
+    flex: 0 1 100%;
+  }
+  .main-nav {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .main-nav a {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .left-column{
+    height: 100vh;
+  }
 }
