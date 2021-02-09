@@ -99,7 +99,7 @@ i.fas.fa-pen-square {
 /* Main - Center */
 
 .center-column {
-  flex: 0 1 535px;
+  flex: 0 1 500px;
   border-right: 1px solid #acacac;
   border-left: 1px solid #acacac;
 }
