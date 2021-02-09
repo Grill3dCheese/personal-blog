@@ -112,15 +112,30 @@ i.fas.fa-pen-square {
   background: antiquewhite;
   padding: 12px;
   top: 0;
+  box-shadow: 0px 3px 5px -3px #63b995;
 }
 
 /* Right Sidebar */
+
 .right-column {
   flex: 0 1 200px;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  border-top: 2px solid red;
+}
+
+.social-contact {
+  font-size: 35px;
+}
+
+.social-contact i {
+  color: #acacac;
+  transition-property: color;
+  transition-duration: 1s;
+}
+
+.social-contact i:hover {
+  color: #63b995;
 }
 
 /* Media Queries */
@@ -154,6 +169,14 @@ i.fas.fa-pen-square {
   }
   .main-nav a {
     font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 934px) {
+  .right-column {
+    border-top: 2px solid #63b995;
+    margin-top: 20px;
+    padding-top: 20px;
   }
 }
 
