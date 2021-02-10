@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 
 // schema setup
 let blogSchema = new mongoose.Schema({
-  name: String,
+  title: String,
   entry: String,
   image: String,
-  description: String,
+  tags: String,
+  category: String,
   createdAt: { type: Date, default: Date.now },
   author: {
     id: {
