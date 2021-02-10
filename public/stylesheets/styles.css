@@ -30,13 +30,6 @@ a:active {
   color: #356697;
 }
 
-article {
-  background: #a07178;
-  border-radius: 20px;
-  margin: 30px 10px;
-}
-/* #30343F - gunmetal // #273469 - space cadet (light) // #1e2749 - space cadet (dark) */
-
 p {
   font-size: 16px;
 }
@@ -127,6 +120,14 @@ i.fas.fa-pen-square {
 
 /* Center - Blog Posts */
 
+article {
+  background: #f2e0c9;
+  border: 2px solid #a07178;
+  border-radius: 20px;
+  margin: 30px 10px;
+}
+/* #30343F - gunmetal // #273469 - space cadet (light) // #1e2749 - space cadet (dark) */
+
 .blog-title {
   font-size: 35px;
 }
@@ -140,6 +141,21 @@ i.fas.fa-pen-square {
 .post-meta > div {
   flex: 0 1 150px;
   margin: 5px;
+}
+
+.post-meta > div > i {
+  font-size: 10px;
+}
+
+img {
+  width: 75%;
+  border-radius: 10px;
+  margin: 15px 0;
+  box-shadow: 0px 0px 10px 2px #acacac;
+}
+
+.blog-summary {
+  padding: 0 2% 5% 2%;
 }
 
 /* Right Sidebar */
