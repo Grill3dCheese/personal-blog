@@ -5,9 +5,14 @@ const express = require("express"),
   mongoose = require("mongoose"),
   methodOverride = require("method-override"),
   bodyParser = require("body-parser"),
+  dayjs = require("dayjs"),
   Blog = require("./models/blog"),
   port = 3000,
   blogRoute = require("./routes/blogs");
+
+  let now = dayjs().isBefore(dayjs("2021-02-12"));
+
+  console.log(now);
 
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
