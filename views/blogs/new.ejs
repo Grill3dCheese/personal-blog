@@ -1,0 +1,21 @@
+<%- include('../partials/blogHeader'); -%>
+      
+<section class="center-column">
+        <div class="header">
+          <!-- img tag w/class profile-img -->
+          <div class="header-content">
+            <h2>Keith McKenna 👨🏻‍💻</h2>
+            <p>Full Stack Developer</p>
+          </div>
+        </div>
+        <div>
+            <form action="/blog" method="POST">
+            <input type="text" name="title" id="title" placeholder="Blog Title">
+            <input type="text" name="entry" id="entry" placeholder="Blog Entry">
+            <input type="text" name="tags" id="tags" placeholder="Blog Tags">
+            <button type="submit">Submit</button>
+        </form>
+        </div>
+      </section>
+
+<%- include('../partials/blogFooter'); -%>
