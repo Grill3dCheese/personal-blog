@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
   //   id: req.user._id,
   //   username: req.user.username
   // };
-  const newBlog = {title: title, entry: entry, image: image, tags: tags, category: category, author: author};
+  const newBlog = {title: title, entry: entry, image: image, tags: tags, category: category};
   // Create a new post and save to the DB
   Blog.create(newBlog, (err, newlyCreated) => {
     if(err){
