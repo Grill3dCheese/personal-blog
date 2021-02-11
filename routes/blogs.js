@@ -14,4 +14,30 @@ router.get("/", function (req, res) {
   });
 });
 
+// create blog
+router.post("/", (req, res) => {
+  // get data from blog form and add to blog array
+  const { title, entry, image, tags, category } = req.body;
+  // const author = {
+  //   id: req.user._id,
+  //   username: req.user.username
+  // };
+  const newBlog = {title: title, entry: entry, image: image, tags: tags, category: category, author: author};
+  // Create a new post and save to the DB
+  Blog.create(newBlog, (err, newlyCreated) => {
+    if(err){
+      console.log(err);
+    } else {
+      // redirect user back to blog index page
+      console.log(newlyCreated);
+      res.redirect("/blog");
+    }
+  });
+});
+
+// path to form to create new post
+router.get("/new", (req, res) => {
+  res.render("posts/new");
+});
+
 module.exports = router;
