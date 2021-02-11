@@ -9,22 +9,22 @@
           </div>
         </div>
         <div>
-          <%# blogs.reverse().forEach(function(blog){ %>
+          <% blogs.reverse().forEach((blog) => { %>
             <article>
               <header>
                 <h1>
-                  <a class="blog-title" href="#">##BLOG TITLE##</a>
+                  <a class="blog-title" href="#"><%= blog.title %></a>
                 </h1>
                 <div class="post-meta">
-                  <div class="post-author"><i class="fas fa-at"></i> Keith McKenna</div>
+                  <div class="post-author"><i class="fas fa-at"></i> <%= blog.author %></div>
                   <div class="post-date"><i class="far fa-calendar"></i> February 08, 2021</div>
-                  <div class="post-comments"><i class="far fa-comment-alt"></i> 2 Comments</div>
+                  <div class="post-comments"><i class="far fa-comment-alt"></i> <%= blog.tags %></div>
                 </div>
               </header>
               <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2704&q=80" alt="">
               <p class="blog-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime in corporis, dolor, soluta deleniti nostrum mollitia dolore eveniet aliquam ratione illum harum facere...</p>
             </article>
-          <%# }); %>
+          <% }); %>
         </div>
       </section>
 
