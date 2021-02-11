@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // schema setup
-let blogSchema = new mongoose.Schema({
+const blogSchema = new mongoose.Schema({
   title: String,
   entry: String,
   image: String,
