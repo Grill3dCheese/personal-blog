@@ -37,7 +37,7 @@ router.post("/", (req, res) => {
 
 // path to form to create new post
 router.get("/new", (req, res) => {
-  res.render("posts/new");
+  res.render("blogs/new");
 });
 
 module.exports = router;
