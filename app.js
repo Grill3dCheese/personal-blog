@@ -10,10 +10,6 @@ const express = require("express"),
   port = 3000,
   blogRoute = require("./routes/blogs");
 
-  let now = dayjs().isBefore(dayjs("2021-02-12"));
-
-  console.log(now);
-
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
 
@@ -30,6 +26,10 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use((req, res, next) => {
+  res.locals.dayjs = dayjs;
+  next();
+});
 
 app.use("/blog", blogRoute);
 
