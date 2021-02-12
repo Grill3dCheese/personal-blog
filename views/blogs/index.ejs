@@ -16,8 +16,8 @@
                   <a class="blog-title" href="#"><%= blog.title %></a>
                 </h1>
                 <div class="post-meta">
-                  <div class="post-author"><i class="fas fa-at"></i> <%= blog.author %></div>
-                  <div class="post-date"><i class="far fa-calendar"></i> February 08, 2021</div>
+                  <div class="post-author"><i class="fas fa-at"></i> Keith McKenna</div>
+                  <div class="post-date"><i class="far fa-calendar"></i> <%= dayjs(blog.createdAt).format("MMM D, YYYY - hh:mm:ss A"); %></div>
                   <div class="post-comments"><i class="far fa-comment-alt"></i> <%= blog.tags %></div>
                 </div>
               </header>
