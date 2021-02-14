@@ -1,0 +1,40 @@
+<%- include('../partials/blogHeader'); -%>
+
+<section class="center-column">
+  <div class="header">
+    <!-- img tag w/class profile-img -->
+    <div class="header-content">
+      <h2>Keith McKenna 👨🏻‍💻</h2>
+      <p>Full Stack Developer</p>
+    </div>
+  </div>
+  <article class="show-card">
+      <header>
+          <div class="back-container">
+          <div class="go-back">
+            <i class="fas fa-long-arrow-alt-left"></i> 
+            <a href="/blog">Go Back</a>
+          </div>
+        </div>
+          <h1 class="show-title">
+              <%= blog.title %>
+          </h1>
+          <div class="post-meta">
+            <div class="post-author"><i class="fas fa-at"></i> Keith McKenna</div>
+            <div class="post-date">
+              <i class="far fa-calendar"></i> <%=
+              dayjs(blog.createdAt).format("MMM D, YYYY"); %>
+            </div>
+            <div class="post-comments">
+              <i class="far fa-comment-alt"></i> <%= blog.tags %>
+            </div>
+          </div>
+      </header>
+      <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2704&q=80" alt="">
+      <p class="blog-summary">
+          <%= blog.entry %>
+      </p>
+  </article>
+</section>
+
+<%- include('../partials/blogFooter'); -%>
