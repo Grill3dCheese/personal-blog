@@ -116,7 +116,7 @@ i.fas.fa-pen-square {
 
 /* Center - Blog Posts */
 
-article {
+.blog-card {
   background: #f2e0c9;
   border: 2px solid #a07178;
   border-radius: 20px;
@@ -180,6 +180,37 @@ img {
 
 .social-contact i:hover {
   color: #a07178;
+}
+
+/* Blog Show Page */
+
+.show-card {
+  margin: 30px 10px;
+}
+
+.back-container {
+  display: flex;
+}
+
+.go-back {
+  display: flex;
+  align-items: center;
+  margin: 0 0 25px 10px;
+  font-size: 16px;
+  border: 2px solid #a07178;
+  border-radius: 20px;
+}
+
+.go-back > i {
+  margin: 10px;
+}
+
+.go-back > a {
+  margin-right: 10px;
+}
+
+.show-title {
+  font-size: 32px;
 }
 
 /* Media Queries */
