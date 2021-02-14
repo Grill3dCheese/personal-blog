@@ -6,7 +6,6 @@ const blogSchema = new mongoose.Schema({
   entry: String,
   image: String,
   tags: String,
-  category: String,
   createdAt: { type: Date, default: Date.now },
   author: {
     id: {
