@@ -17,7 +17,7 @@ router.get("/", function (req, res) {
 // create blog
 router.post("/", (req, res) => {
   // get data from blog form and add to blog array
-  const { title, entry, image, tags, category } = req.body;
+  const { title, entry, image, tags } = req.body;
   // const author = {
   //   id: req.user._id,
   //   username: req.user.username
@@ -27,7 +27,6 @@ router.post("/", (req, res) => {
     entry: entry,
     image: image,
     tags: tags,
-    category: category,
   };
   // Create a new post and save to the DB
   Blog.create(newBlog, (err, newlyCreated) => {
@@ -44,6 +43,18 @@ router.post("/", (req, res) => {
 // path to form to create new post
 router.get("/new", (req, res) => {
   res.render("blogs/new");
+});
+
+// show blog route
+router.get("/:id", (req, res) => {
+  Blog.findById(req.params.id).exec((err, foundBlog) => {
+    if (err || !foundBlog) {
+      console.log(err);
+      res.redirect("/blog");
+    } else {
+      res.render("blogs/show", { blog: foundBlog });
+    }
+  });
 });
 
 module.exports = router;
