@@ -12,7 +12,8 @@ const express = require("express"),
   Blog = require("./models/blog"),
   User = require("./models/user"),
   port = 3000,
-  blogRoute = require("./routes/blogs");
+  blogRoute = require("./routes/blogs"),
+  userRoute = require("./routes/user");
 
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
@@ -58,6 +59,7 @@ app.use(function (req, res, next) {
 });
 
 app.use("/blog", blogRoute);
+app.use("/blog/user", userRoute);
 
 app.listen(port, () => {
   console.log(`Now serving your blog app on localhost:${port}`);
