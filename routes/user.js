@@ -9,13 +9,13 @@ const express = require("express"),
   crypto = require("crypto");
 
 // show register form
-router.get("/register", function (req, res) {
-  res.render("register", { page: "register" });
+router.get("/register", (req, res) => {
+  res.render("users/register", { page: "register" });
 });
 
 // post register logic
-router.post("/register", function (req, res) {
-  var newUser = new User({
+router.post("/register", (req, res) => {
+  const newUser = new User({
     username: req.body.username,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -27,19 +27,19 @@ router.post("/register", function (req, res) {
   if (req.body.adminCode === process.env.SECRETCODE) {
     newUser.isAdmin = true;
   }
-  User.register(newUser, req.body.password, function (err, user) {
+  User.register(newUser, req.body.password, (err, user) => {
     if (err) {
       console.log(err);
       return res.render("register", { error: err.message });
     }
-    passport.authenticate("local")(req, res, function () {
+    passport.authenticate("local")(req, res, () => {
       req.flash(
         "success",
         "Hiya, " +
           user.username +
           "! Thanks for creating a new account. Welcome to the blog!"
       );
-      res.redirect("/posts");
+      res.redirect("/blog");
     });
   });
 });
@@ -53,8 +53,8 @@ router.get("/login", function (req, res) {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/posts",
-    successFlash: "Hey, welcome back! Enjoy your time here!",
+    successRedirect: "/blog",
+    successFlash: "Welcome back! 👋",
     failureRedirect: "/login",
     failureFlash: true,
   }),
@@ -65,7 +65,7 @@ router.post(
 router.get("/logout", function (req, res) {
   req.logout();
   req.flash("success", "You've been logged out successfully! See you soon.");
-  res.redirect("/posts");
+  res.redirect("/blog");
 });
 
 module.exports = router;
