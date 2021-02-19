@@ -43,6 +43,17 @@ p {
   font-size: 16px;
 }
 
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+input {
+  padding: 10px;
+}
+
 .test {
   border: 2px solid black;
 }
@@ -189,11 +200,9 @@ img {
 /* Blog New Page */
 
 .card {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #f2e0c9;
   border-radius: 20px;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  margin-top: 10%;
+  margin: 10% 1% 0 1%;
 }
 
 .new-header {
@@ -221,9 +230,8 @@ img {
   display: block;
   width: 100%;
   height: auto;
-  padding: 0.6rem 0 0.4rem 0;
   margin: 0 0 0.5rem 0;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.5;
   color: #353535;
   background-clip: padding-box;
