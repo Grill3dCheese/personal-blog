@@ -8,13 +8,41 @@
       <p>Full Stack Developer</p>
     </div>
   </div>
-  <div>
-    <form action="/blog" method="POST">
-      <input type="text" name="title" id="title" placeholder="Blog Title" />
-      <input type="text" name="entry" id="entry" placeholder="Blog Entry" />
-      <input type="text" name="tags" id="tags" placeholder="Blog Tags" />
-      <button type="submit">Submit</button>
-    </form>
+  <div class="card">
+    <h1 class="new-header">Create a New Post</h1>
+    <hr />
+    <div class="card-body test">
+      <form action="/blog" method="POST">
+        <div class="blog-form">
+          <input
+            class="form-control"
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Blog Title"
+          />
+        </div>
+        <div class="blog-form">
+          <input
+            class="form-control"
+            type="text"
+            name="entry"
+            id="entry"
+            placeholder="Blog Entry"
+          />
+        </div>
+        <div class="blog-form">
+          <input
+            class="form-control"
+            type="text"
+            name="tags"
+            id="tags"
+            placeholder="Blog Tags"
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </div>
 </section>
 
