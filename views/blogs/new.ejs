@@ -15,33 +15,49 @@
       <form action="/blog" method="POST" role="form">
         <fieldset>
           <div class="blog-form">
+            <i class="fas fa-heading"></i>
             <input
               class="form-control"
               type="text"
               name="title"
               id="title"
               placeholder="Blog Title"
+              required
             />
           </div>
           <div class="blog-form">
+            <i class="fas fa-image"></i>
             <input
+              type="file"
+              name="image"
+              id="image"
               class="form-control"
-              type="text"
-              name="entry"
-              id="entry"
-              placeholder="Blog Entry"
+              required
             />
           </div>
           <div class="blog-form">
+            <i class="fas fa-tag"></i>
             <input
               class="form-control"
               type="text"
               name="tags"
               id="tags"
               placeholder="Blog Tags"
+              required
             />
           </div>
-          <button type="submit">Submit</button>
+          <div class="blog-form">
+            <i class="fas fa-pencil-alt"></i>
+            <textarea
+              class="form-control"
+              name="entry"
+              id="entry"
+              rows="7"
+              placeholder="Blog Entry"
+              required
+            ></textarea>
+          </div>
+          <button class="submitBtn" type="submit">Submit</button>
         </fieldset>
       </form>
     </div>
