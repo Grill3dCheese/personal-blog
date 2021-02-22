@@ -52,6 +52,7 @@ fieldset {
 
 input {
   padding: 10px;
+  font-family: monospace;
 }
 
 .test {
@@ -224,20 +225,51 @@ img {
 .blog-form {
   position: relative;
   margin: 1.5rem 0;
+  display: flex;
+}
+
+.blog-form i {
+  font-size: 1.5rem;
+  align-self: center;
+  margin: 0 10px 0 0;
 }
 
 .form-control {
-  display: block;
-  width: 100%;
+  width: 90%;
   height: auto;
-  margin: 0 0 0.5rem 0;
   font-size: 16px;
   line-height: 1.5;
   color: #353535;
   background-clip: padding-box;
   border: 1px solid #acacac;
-  border-radius: 0.25rem;
+  border-radius: 0.2rem;
   transition: border color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.submitBtn {
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.25em;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  color: #03384b;
+  display: inline-block;
+  padding: 20px 40px;
+  position: relative;
+  border: 3px solid #03384b;
+  border-radius: 100em;
+}
+.submitBtn:before {
+  border: 3px solid #f9f6f1;
+  border-radius: 100em;
+  left: 2px;
+  top: 1px;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 /* Blog Show Page */
