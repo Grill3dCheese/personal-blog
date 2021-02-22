@@ -214,6 +214,7 @@ img {
     rgba(251, 171, 126, 1) 0%,
     rgba(247, 206, 104, 1) 100%
   );
+  background-clip: inherit;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
