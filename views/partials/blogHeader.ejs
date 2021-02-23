@@ -22,4 +22,15 @@
           <a href="/contact"><i class="fas fa-unlock"></i>Sign In</a>
         </nav>
       </section>
-      
+      <div class="alert-container">
+        <% if(error && error.length > 0){ %>
+          <div class="alert-danger" role="alert">
+            <%= error %>
+          </div>
+          <% } %>
+          <% if(success && success.length > 0){ %>
+            <div class="alert-success" role="alert">
+              <%= success %>
+            </div>
+            <% } %>
+      </div>
