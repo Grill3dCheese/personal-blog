@@ -1,0 +1,68 @@
+<%- include('../partials/blogHeader'); -%>
+
+<section class="center-column">
+  <div class="header">
+    <!-- img tag w/class profile-img -->
+    <div class="header-content">
+      <h2>Keith McKenna 👨🏻‍💻</h2>
+      <p>Full Stack Developer</p>
+    </div>
+  </div>
+  <div class="card">
+    <h1 class="new-header">Edit 
+        "<%= blog.title %>"
+    </h1>
+    <hr />
+    <div class="card-body">
+      <form action="/blog/<%= blog._id %>?_method=PUT" method="POST" role="form">
+        <fieldset>
+          <div class="blog-form">
+            <i class="fas fa-heading"></i>
+            <input
+              class="form-control"
+              type="text"
+              name="blog[title]"
+              id="title"
+              value="<%= blog.title %>"
+              required
+            />
+          </div>
+          <div class="blog-form">
+            <i class="fas fa-image"></i>
+            <input
+              type="file"
+              name="image"
+              id="image"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="blog-form">
+            <i class="fas fa-tag"></i>
+            <input
+              class="form-control"
+              type="text"
+              name="blog[tags]"
+              id="tags"
+              value="<%= blog.tags %>"
+              required
+            />
+          </div>
+          <div class="blog-form">
+            <i class="fas fa-pencil-alt"></i>
+            <textarea
+              class="form-control"
+              name="blog[entry]"
+              id="entry"
+              rows="7"
+              required
+            ><%- blog.entry%></textarea>
+          </div>
+          <button class="submitBtn" type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/blogFooter'); -%>
