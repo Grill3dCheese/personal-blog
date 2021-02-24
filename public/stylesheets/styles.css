@@ -209,7 +209,7 @@ img {
 .new-header {
   font-size: 50px;
   background: rgb(53,102,151);
-  background: linear-gradient(350deg, rgba(53,102,151,1) 20%, rgba(129,188,246,1) 50%, rgba(53,102,151,1) 80%);
+  background: linear-gradient(45deg, rgba(53,102,151,1) 20%, rgba(134,173,213,1) 65%);
   background-clip: inherit;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
