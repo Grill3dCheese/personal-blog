@@ -12,7 +12,7 @@
     <h1 class="sign-up">Sign Up</h1>
     <hr />
     <div class="card-body">
-      <form action="/register" method="POST" role="form">
+      <form action="/blog/user/register" method="POST" role="form">
         <fieldset>
           <div class="blog-form">
             <i class="fas fa-user"></i>
@@ -37,38 +37,48 @@
             />
           </div>
           <div class="blog-form">
-            <i class="fas fa-image"></i>
-            <input
-              type="file"
-              name="image"
-              id="image"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="blog-form">
-            <i class="fas fa-tag"></i>
+            <i class="fas fa-signature"></i>
             <input
               class="form-control"
               type="text"
-              name="tags"
-              id="tags"
-              placeholder="Blog Tags"
+              name="name"
+              id="name"
+              placeholder="Your Name"
               required
             />
           </div>
           <div class="blog-form">
-            <i class="fas fa-pencil-alt"></i>
-            <textarea
+            <i class="fas fa-at"></i>
+            <input
+              type="email"
               class="form-control"
-              name="entry"
-              id="entry"
-              rows="7"
-              placeholder="Blog Entry"
+              name="email"
+              id="email"
+              placeholder="Email Address"
               required
-            ></textarea>
+            />
           </div>
-          <button class="submitBtn" type="submit">Submit</button>
+          <div class="blog-form">
+            <i class="fas fa-image"></i>
+            <input
+              type="file"
+              name="avatar"
+              id="avatar"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="blog-form">
+            <i class="fas fa-user-lock"></i>
+            <input
+              type="password"
+              class="form-control"
+              name="adminCode"
+              id="adminCode"
+              placeholder="Admin Code"
+            />
+          </div>
+          <button class="submitBtn" type="submit">Sign Up!</button>
         </fieldset>
       </form>
     </div>
