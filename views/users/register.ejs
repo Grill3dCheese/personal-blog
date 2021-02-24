@@ -1,1 +1,78 @@
-<h1>test</h1>
+<%- include('../partials/blogHeader'); -%>
+
+<section class="center-column">
+  <div class="header">
+    <!-- img tag w/class profile-img -->
+    <div class="header-content">
+      <h2>Keith McKenna 👨🏻‍💻</h2>
+      <p>Full Stack Developer</p>
+    </div>
+  </div>
+  <div class="card">
+    <h1 class="sign-up">Sign Up</h1>
+    <hr />
+    <div class="card-body">
+      <form action="/register" method="POST" role="form">
+        <fieldset>
+          <div class="blog-form">
+            <i class="fas fa-user"></i>
+            <input
+              class="form-control"
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="blog-form">
+            <i class="fas fa-key"></i>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="blog-form">
+            <i class="fas fa-image"></i>
+            <input
+              type="file"
+              name="image"
+              id="image"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="blog-form">
+            <i class="fas fa-tag"></i>
+            <input
+              class="form-control"
+              type="text"
+              name="tags"
+              id="tags"
+              placeholder="Blog Tags"
+              required
+            />
+          </div>
+          <div class="blog-form">
+            <i class="fas fa-pencil-alt"></i>
+            <textarea
+              class="form-control"
+              name="entry"
+              id="entry"
+              rows="7"
+              placeholder="Blog Entry"
+              required
+            ></textarea>
+          </div>
+          <button class="submitBtn" type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/blogFooter'); -%>
