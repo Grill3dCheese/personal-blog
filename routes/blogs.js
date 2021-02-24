@@ -18,15 +18,17 @@ router.get("/", function (req, res) {
 router.post("/", (req, res) => {
   // get data from blog form and add to blog array
   const { title, entry, image, tags } = req.body;
-  // const author = {
-  //   id: req.user._id,
-  //   username: req.user.username
-  // };
+  const author = {
+    id: req.user._id,
+    firstName: req.user.firstName,
+    lastName: req.user.lastName,
+  };
   const newBlog = {
     title: title,
     entry: entry,
     image: image,
     tags: tags,
+    author: author,
   };
   // Create a new post and save to the DB
   Blog.create(newBlog, (err, newlyCreated) => {
@@ -34,7 +36,6 @@ router.post("/", (req, res) => {
       console.log(err);
     } else {
       // redirect user back to blog index page
-      console.log(newlyCreated);
       res.redirect("/blog");
     }
   });
