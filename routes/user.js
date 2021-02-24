@@ -44,8 +44,8 @@ router.post("/register", (req, res) => {
 });
 
 // show login form
-router.get("/login", function (req, res) {
-  res.render("login", { page: "login" });
+router.get("/login", (req, res) => {
+  res.render("users/login", { page: "login" });
 });
 
 // login post route logic
@@ -57,11 +57,11 @@ router.post(
     failureRedirect: "/login",
     failureFlash: true,
   }),
-  function (req, res) {}
+  (req, res) => {}
 );
 
 // logout route
-router.get("/logout", function (req, res) {
+router.get("/logout", (req, res) => {
   req.logout();
   req.flash("success", "You've been logged out successfully! See you soon.");
   res.redirect("/blog");
