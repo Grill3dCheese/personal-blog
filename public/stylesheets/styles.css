@@ -208,12 +208,8 @@ img {
 
 .new-header {
   font-size: 50px;
-  background: rgb(251, 171, 126);
-  background: linear-gradient(
-    65deg,
-    rgba(251, 171, 126, 1) 0%,
-    rgba(247, 206, 104, 1) 100%
-  );
+  background: rgb(53,102,151);
+  background: linear-gradient(350deg, rgba(53,102,151,1) 20%, rgba(129,188,246,1) 50%, rgba(53,102,151,1) 80%);
   background-clip: inherit;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -254,23 +250,13 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   text-decoration: none;
-  color: #03384b;
+  color: #356697;
   display: inline-block;
   padding: 20px 40px;
   position: relative;
-  border: 3px solid #03384b;
+  border: 3px solid #a07178;
   border-radius: 100em;
-}
-.submitBtn:before {
-  border: 3px solid #f9f6f1;
-  border-radius: 100em;
-  left: 2px;
-  top: 1px;
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  cursor: pointer;
 }
 
 /* Blog Show Page */
