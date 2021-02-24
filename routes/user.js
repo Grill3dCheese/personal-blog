@@ -15,11 +15,10 @@ router.get("/register", (req, res) => {
 
 // post register logic
 router.post("/register", (req, res) => {
-  const { username, firstName, lastName, email, avatar } = req.body;
+  const { username, name, email, avatar } = req.body;
   const newUser = new User({
     username: username,
-    firstName: firstName,
-    lastName: lastName,
+    name: name,
     email: email,
     avatar: avatar,
   });
@@ -36,7 +35,7 @@ router.post("/register", (req, res) => {
       req.flash(
         "success",
         "Hiya, " +
-          user.firstName +
+          user.name +
           "! Thanks for creating a new account. Welcome to the blog!"
       );
       res.redirect("/blog");
