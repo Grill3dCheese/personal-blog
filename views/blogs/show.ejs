@@ -20,7 +20,7 @@
               <%= blog.title %>
           </h1>
           <div class="post-meta">
-            <div class="post-author"><i class="fas fa-at"></i> Keith McKenna</div>
+            <div class="post-author"><i class="fas fa-at"></i> <%= blog.author.name %></div>
             <div class="post-date">
               <i class="far fa-calendar"></i> <%=
               dayjs(blog.createdAt).format("MMM D, YYYY"); %>
