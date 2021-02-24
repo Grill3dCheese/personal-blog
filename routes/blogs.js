@@ -20,8 +20,7 @@ router.post("/", (req, res) => {
   const { title, entry, image, tags } = req.body;
   const author = {
     id: req.user._id,
-    firstName: req.user.firstName,
-    lastName: req.user.lastName,
+    name: req.user.name,
   };
   const newBlog = {
     title: title,
