@@ -15,12 +15,13 @@ router.get("/register", (req, res) => {
 
 // post register logic
 router.post("/register", (req, res) => {
+  const { username, firstName, lastName, email, avatar } = req.body;
   const newUser = new User({
-    username: req.body.username,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    avatar: req.body.avatar,
+    username: username,
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    avatar: avatar,
   });
 
   if (req.body.adminCode === process.env.SECRETCODE) {
@@ -35,7 +36,7 @@ router.post("/register", (req, res) => {
       req.flash(
         "success",
         "Hiya, " +
-          user.username +
+          user.firstName +
           "! Thanks for creating a new account. Welcome to the blog!"
       );
       res.redirect("/blog");
