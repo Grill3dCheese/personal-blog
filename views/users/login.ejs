@@ -1,0 +1,46 @@
+<%- include('../partials/blogHeader'); -%>
+
+<section class="center-column">
+  <div class="header">
+    <!-- img tag w/class profile-img -->
+    <div class="header-content">
+      <h2>Keith McKenna 👨🏻‍💻</h2>
+      <p>Full Stack Developer</p>
+    </div>
+  </div>
+  <div class="card">
+    <h1 class="sign-up">Sign In</h1>
+    <hr />
+    <div class="card-body">
+      <form action="/blog/user/login" method="POST" role="form">
+        <fieldset>
+          <div class="blog-form">
+            <i class="fas fa-user"></i>
+            <input
+              class="form-control"
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+          <div class="blog-form">
+            <i class="fas fa-key"></i>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button class="submitBtn" type="submit">Sign In!</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/blogFooter'); -%>
