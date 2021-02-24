@@ -19,7 +19,11 @@
             ><i class="fas fa-house-user"></i>Portfolio</a
           >
           <a href="/blog"><i class="fas fa-redo-alt"></i>Blog</a>
-          <a href="/contact"><i class="fas fa-unlock"></i>Sign In</a>
+          <% if(!currentUser) { %>
+          <a href="/blog/user/login"><i class="fas fa-unlock"></i>Sign In</a>
+          <% } else { %>
+          <a href="/blog/user/logout"><i class="fas fa-lock"></i>Sign Out</a>
+          <% } %>
         </nav>
       </section>
       <div class="alert-container">
