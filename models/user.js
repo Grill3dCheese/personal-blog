@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, unique: true, required: true },
   resetPasswordToken: String,
   resetPasswordExpires: Date,
-  isAdmin: { type: Boolean, default: false, required: true },
+  isAdmin: { type: Boolean, default: false },
 });
 
 UserSchema.plugin(uniqueValidator);
