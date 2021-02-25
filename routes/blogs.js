@@ -35,6 +35,7 @@ router.post("/", (req, res) => {
       console.log(err);
     } else {
       // redirect user back to blog index page
+      req.flash("success", "✅ SHABLAM! A new blog entry has been created!");
       res.redirect("/blog");
     }
   });
