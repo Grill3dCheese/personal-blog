@@ -12,7 +12,13 @@ const UserSchema = new mongoose.Schema({
   password: String,
   name: String,
   avatar: String,
-  email: { type: String, unique: true, required: true },
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+    lowercase: true,
+    trim: true,
+  },
   resetPasswordToken: String,
   resetPasswordExpires: Date,
   isAdmin: { type: Boolean, default: false },
@@ -20,6 +26,6 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.plugin(uniqueValidator);
 
-UserSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
+UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });
 
 module.exports = mongoose.model("User", UserSchema);
