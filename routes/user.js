@@ -1,3 +1,5 @@
+const user = require("../models/user");
+
 const express = require("express"),
   router = express.Router(),
   passport = require("passport"),
@@ -52,12 +54,13 @@ router.get("/login", (req, res) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/blog",
-    successFlash: "Hey there! Welcome back! 👋",
     failureRedirect: "/blog/user/login",
     failureFlash: true,
   }),
-  (req, res) => {}
+  (req, res) => {
+    req.flash("success", "Hey, " + req.user.username + "! Welcome back 👋");
+    res.redirect("/blog");
+  }
 );
 
 // logout route
