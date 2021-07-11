@@ -221,6 +221,7 @@ img {
   background-color: #f2e0c9;
   border-radius: 20px;
   margin: 10% 1% 0 1%;
+  padding: 25px;
 }
 
 .new-header {
@@ -249,7 +250,30 @@ img {
 .blog-form i {
   font-size: 1.5rem;
   align-self: center;
-  margin: 0 10px 0 0;
+}
+
+.fa-user {
+  margin-right: 17px;
+}
+
+.fa-key {
+  margin-right: 14px;
+}
+
+.fa-signature {
+  margin-right: 8px;
+}
+
+.fa-at {
+  margin-right: 14px;
+}
+
+.fa-image {
+  margin-right: 14px;
+}
+
+.fa-user-lock {
+  margin-right: 9px;
 }
 
 .form-control {
@@ -278,6 +302,7 @@ img {
   border: 3px solid #a07178;
   border-radius: 100em;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 /* Blog Show Page */
