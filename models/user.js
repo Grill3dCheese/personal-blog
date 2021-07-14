@@ -7,7 +7,8 @@ const UserSchema = new mongoose.Schema({
     type: String,
     unique: true,
     required: true,
-    uniqueCaseInsensitive: true,
+    lowercase: true,
+    trim: true,
   },
   password: String,
   name: String,
@@ -16,8 +17,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     unique: true,
     required: true,
-    lowercase: true,
-    trim: true,
+    uniqueCaseInsensitive: true,
   },
   resetPasswordToken: String,
   resetPasswordExpires: Date,
@@ -26,6 +26,6 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.plugin(uniqueValidator);
 
-UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });
+UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("User", UserSchema);
