@@ -58,7 +58,7 @@ router.post(
     failureFlash: true,
   }),
   (req, res) => {
-    req.flash("success", "Hey, " + req.user.username + "! Welcome back 👋");
+    req.flash("success", "Hey, " + req.user.name + "! Welcome back 👋");
     res.redirect("/blog");
   }
 );
