@@ -166,7 +166,7 @@ i.fas.fa-lock {
   background: #f2e0c9;
   border: 2px solid #a07178;
   border-radius: 20px;
-  margin: 30px 10px;
+  margin: 30px 1% 0 1%;
 }
 /* #30343F - gunmetal // #273469 - space cadet (light) // #1e2749 - space cadet (dark) */
 
@@ -203,6 +203,8 @@ img {
 .read-more {
   margin: 3% 0;
   font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 /* Right Sidebar */
@@ -235,6 +237,7 @@ img {
   border-radius: 20px;
   margin: 10% 1% 0 1%;
   padding: 25px;
+  border: 2px solid #356697;
 }
 
 .new-header {
