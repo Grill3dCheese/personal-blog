@@ -40,4 +40,7 @@
             <h2>Keith McKenna 👨🏻‍💻</h2>
             <p>Full Stack Developer</p>
           </div>
+          <% if(currentUser && currentUser.isAdmin == true){ %>
+          <div class="newBlog"><a href="/blog/new"><i class="fas fa-plus-square"></i></a></div>
+          <% } %>
         </div>
