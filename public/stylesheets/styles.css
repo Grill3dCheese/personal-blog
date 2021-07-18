@@ -125,7 +125,7 @@ i.fas.fa-lock {
 }
 
 .alert-success {
-  border: 3px solid #356697;
+  border: 3px solid #aaccaa;
   border-radius: 25px;
   padding: 20px;
 }
@@ -137,7 +137,7 @@ i.fas.fa-lock {
 }
 
 .slide-up {
-  transform: translateY(-100px);
+  transform: translateY(-125px);
   transition: all 0.5s;
 }
 
@@ -158,6 +158,13 @@ i.fas.fa-lock {
   padding: 12px;
   top: 0;
   box-shadow: 0px 3px 5px -3px #356697;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newBlog a {
+  font-size: 36px;
+  color: #aaccaa;
 }
 
 /* Center - Blog Posts */
@@ -240,7 +247,7 @@ img {
   border: 2px solid #356697;
 }
 
-.new-header {
+.newBlog-header {
   font-size: 50px;
   background: rgb(53, 102, 151);
   background: linear-gradient(
@@ -251,6 +258,7 @@ img {
   background-clip: inherit;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
 }
 
 .card-body {
@@ -290,6 +298,18 @@ img {
 
 .fa-user-lock {
   margin-right: 9px;
+}
+
+.fa-heading {
+  margin-right: 14px;
+}
+
+.fa-tag {
+  margin-right: 14px;
+}
+
+.fa-pencil-alt {
+  margin-right: 14px;
 }
 
 .form-control {
