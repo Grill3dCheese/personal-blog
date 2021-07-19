@@ -15,7 +15,7 @@ router.get("/", function (req, res) {
 });
 
 // create blog
-router.post("/", (req, res) => {
+router.post("/", middleware.isLoggedIn, (req, res) => {
   // get data from blog form and add to blog array
   const { title, entry, image, tags } = req.body;
   const author = {
@@ -42,7 +42,7 @@ router.post("/", (req, res) => {
 });
 
 // path to form to create new post
-router.get("/new", (req, res) => {
+router.get("/new", middleware.isUserAdmin, (req, res) => {
   res.render("blogs/new");
 });
 
@@ -59,7 +59,7 @@ router.get("/:id", (req, res) => {
 });
 
 // edit post route
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", middleware.checkBlogOwnership, (req, res) => {
   Blog.findById(req.params.id, (err, foundBlog) => {
     if (err || !foundBlog) {
       req.flash("error", "Apologies, that entry was not found!");
@@ -71,7 +71,7 @@ router.get("/:id/edit", (req, res) => {
 });
 
 // update post route
-router.put("/:id", (req, res) => {
+router.put("/:id", middleware.checkBlogOwnership, (req, res) => {
   Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err, blog) => {
     if (err) {
       req.flash("error", err.message);
@@ -84,7 +84,7 @@ router.put("/:id", (req, res) => {
 });
 
 // destroy post route
-router.delete("/:id", (req, res) => {
+router.delete("/:id", middleware.checkBlogOwnership, (req, res) => {
   Blog.findByIdAndRemove(req.params.id, (err) => {
     if (err) {
       req.flash(
