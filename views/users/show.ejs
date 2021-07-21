@@ -1,0 +1,14 @@
+<%- include('../partials/blogHeader'); -%>
+<h1><%= user.name %>'s Profile</h1>
+<!-- <img src="<%= user.avatar %>" alt="user's profile image" /> -->
+<h3>Posts Created:</h3>
+<ul>
+  <% posts.reverse().forEach((blog) => { %>
+  <li>
+    <a href="/blog/<%= blog.id %>">
+      <h5><i class="fas fa-feather-alt"></i> <%= blog.title %></h5>
+    </a>
+  </li>
+  <% }); %>
+</ul>
+<%- include('../partials/blogFooter'); -%>
