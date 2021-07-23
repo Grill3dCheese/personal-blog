@@ -1,7 +1,22 @@
 const express = require("express"),
   router = express.Router(),
   Blog = require("../models/blog"),
-  middleware = require("../middleware");
+  middleware = require("../middleware"),
+  multer = require("multer"),
+  cloudinary = require("cloudinary").v2,
+  { CloudinaryStorage } = require("multer-storage-cloudinary");
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_CLOUD_KEY,
+  api_secret: process.env.API_CLOUD_SECRET,
+});
+var storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: "personalBlog",
+  allowedFormats: ["jpg", "jpeg", "png"],
+});
+var parser = multer({ storage: storage });
 
 // index of blogs
 router.get("/", function (req, res) {
@@ -15,9 +30,9 @@ router.get("/", function (req, res) {
 });
 
 // create blog
-router.post("/", middleware.isLoggedIn, (req, res) => {
+router.post("/", middleware.isLoggedIn, parser.single("image"), (req, res) => {
   // get data from blog form and add to blog array
-  const { title, entry, image, tags } = req.body;
+  const { title, entry, tags } = req.body;
   const author = {
     id: req.user._id,
     name: req.user.name,
@@ -25,9 +40,9 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
   const newBlog = {
     title: title,
     entry: entry,
-    image: image,
     tags: tags,
     author: author,
+    image: req.file.path,
   };
   // Create a new post and save to the DB
   Blog.create(newBlog, (err, newlyCreated) => {
@@ -51,6 +66,10 @@ router.get("/:id", (req, res) => {
   Blog.findById(req.params.id).exec((err, foundBlog) => {
     if (err || !foundBlog) {
       console.log(err);
+      req.flash(
+        "error",
+        "Sorry, that particular entry does not exist. Please try again."
+      );
       res.redirect("/blog");
     } else {
       res.render("blogs/show", { blog: foundBlog });
