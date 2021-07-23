@@ -1,58 +1,62 @@
 <%- include('../partials/blogHeader'); -%>
-  <div class="card">
-    <h1 class="newBlog-header">Create New Post</h1>
-    <hr />
-    <div class="card-body">
-      <form action="/blog" method="POST" role="form">
-        <fieldset>
-          <div class="blog-form">
-            <i class="fas fa-heading"></i>
-            <input
-              class="form-control"
-              type="text"
-              name="title"
-              id="title"
-              placeholder="Blog Title"
-              required
-            />
-          </div>
-          <div class="blog-form">
-            <i class="fas fa-image"></i>
-            <input
-              type="file"
-              name="image"
-              id="image"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="blog-form">
-            <i class="fas fa-tag"></i>
-            <input
-              class="form-control"
-              type="text"
-              name="tags"
-              id="tags"
-              placeholder="Blog Tags"
-              required
-            />
-          </div>
-          <div class="blog-form">
-            <i class="fas fa-pencil-alt"></i>
-            <textarea
-              class="form-control"
-              name="entry"
-              id="entry"
-              rows="7"
-              placeholder="Blog Entry"
-              required
-            ></textarea>
-          </div>
-          <button class="submitBtn" type="submit">Submit</button>
-        </fieldset>
-      </form>
-    </div>
+<div class="card">
+  <h1 class="newBlog-header">Create New Post</h1>
+  <hr />
+  <div class="card-body">
+    <form
+      action="/blog"
+      enctype="multipart/form-data"
+      method="POST"
+      role="form"
+    >
+      <fieldset>
+        <div class="blog-form">
+          <i class="fas fa-heading"></i>
+          <input
+            class="form-control"
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Blog Title"
+            required
+          />
+        </div>
+        <div class="blog-form">
+          <i class="fas fa-image"></i>
+          <input
+            type="file"
+            name="image"
+            id="image"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="blog-form">
+          <i class="fas fa-tag"></i>
+          <input
+            class="form-control"
+            type="text"
+            name="tags"
+            id="tags"
+            placeholder="Blog Tags"
+            required
+          />
+        </div>
+        <div class="blog-form">
+          <i class="fas fa-pencil-alt"></i>
+          <textarea
+            class="form-control"
+            name="entry"
+            id="entry"
+            rows="7"
+            placeholder="Blog Entry"
+            required
+          ></textarea>
+        </div>
+        <button class="submitBtn" type="submit">Submit</button>
+      </fieldset>
+    </form>
   </div>
-</section>
+</div>
 
 <%- include('../partials/blogFooter'); -%>
