@@ -1,85 +1,83 @@
 <%- include('../partials/blogHeader'); -%>
 <div class="back-container">
   <div class="go-back">
-    <i class="fas fa-long-arrow-alt-left"></i> 
+    <i class="fas fa-long-arrow-alt-left"></i>
     <a href="/blog/user/login">Go Back</a>
   </div>
 </div>
-  <div class="card">
-    <h1 class="sign-up">Sign Up</h1>
-    <hr />
-    <div class="card-body">
-      <form action="/blog/user/register" method="POST" role="form">
-        <fieldset>
-          <div class="blog-form">
-            <i class="fas fa-user"></i>
-            <input
-              class="form-control"
-              type="text"
-              name="email"
-              id="email"
-              placeholder="Username"
-              required
-            />
-          </div>
-          <div class="blog-form">
-            <i class="fas fa-key"></i>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              id="password"
-              placeholder="Password"
-              required
-            />
-          </div>
-          <div class="blog-form">
-            <i class="fas fa-signature"></i>
-            <input
-              class="form-control"
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Your Name"
-              required
-            />
-          </div>
-          <div class="blog-form">
-            <i class="fas fa-at"></i>
-            <input
-              type="email"
-              class="form-control"
-              name="username"
-              id="username"
-              placeholder="Email Address"
-              required
-            />
-          </div>
-          <div class="blog-form">
-            <i class="fas fa-image"></i>
-            <input
-              type="file"
-              name="avatar"
-              id="avatar"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="blog-form">
-            <i class="fas fa-user-lock"></i>
-            <input
-              type="password"
-              class="form-control"
-              name="adminCode"
-              id="adminCode"
-              placeholder="Admin Code"
-            />
-          </div>
-          <button class="submitBtn" type="submit">Sign Up!</button>
-        </fieldset>
-      </form>
-    </div>
+<div class="card">
+  <h1 class="sign-up">Sign Up</h1>
+  <hr />
+  <div class="card-body">
+    <form
+      action="/blog/user/register"
+      enctype="multipart/form-data"
+      method="POST"
+      role="form"
+    >
+      <fieldset>
+        <div class="blog-form">
+          <i class="fas fa-user"></i>
+          <input
+            class="form-control"
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="blog-form">
+          <i class="fas fa-key"></i>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="blog-form">
+          <i class="fas fa-signature"></i>
+          <input
+            class="form-control"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Your Name"
+            required
+          />
+        </div>
+        <div class="blog-form">
+          <i class="fas fa-at"></i>
+          <input
+            type="email"
+            class="form-control"
+            name="username"
+            id="username"
+            placeholder="Email Address"
+            required
+          />
+        </div>
+        <div class="blog-form">
+          <i class="fas fa-image"></i>
+          <input type="file" name="avatar" id="avatar" class="form-control" />
+        </div>
+        <div class="blog-form">
+          <i class="fas fa-user-lock"></i>
+          <input
+            type="password"
+            class="form-control"
+            name="adminCode"
+            id="adminCode"
+            placeholder="Admin Code"
+          />
+        </div>
+        <button class="submitBtn" type="submit">Sign Up!</button>
+      </fieldset>
+    </form>
   </div>
-</section>
+</div>
 
 <%- include('../partials/blogFooter'); -%>
