@@ -6,7 +6,22 @@ const express = require("express"),
   Blog = require("../models/blog"),
   async = require("async"),
   nodemailer = require("nodemailer"),
+  multer = require("multer"),
+  cloudinary = require("cloudinary").v2,
+  { CloudinaryStorage } = require("multer-storage-cloudinary"),
   crypto = require("crypto");
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_CLOUD_KEY,
+  api_secret: process.env.API_CLOUD_SECRET,
+});
+var storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: "avatars",
+  allowedFormats: ["jpg", "jpeg", "png"],
+});
+var parser = multer({ storage: storage });
 
 // show register form
 router.get("/register", (req, res) => {
@@ -14,13 +29,13 @@ router.get("/register", (req, res) => {
 });
 
 // post register logic
-router.post("/register", (req, res) => {
-  const { username, name, email, avatar } = req.body;
+router.post("/register", parser.single("avatar"), (req, res) => {
+  const { username, name, email } = req.body;
   const newUser = new User({
     username: username,
     name: name,
     email: email,
-    avatar: avatar,
+    avatar: req.file.path,
   });
 
   if (req.body.adminCode === process.env.SECRETCODE) {
@@ -66,26 +81,6 @@ router.get("/logout", (req, res) => {
   req.logout();
   req.flash("success", "You've been logged out successfully! See you soon.");
   res.redirect("/blog");
-});
-
-// user profile
-router.get("/:id", (req, res) => {
-  User.findById(req.params.id, (err, foundUser) => {
-    if (err) {
-      req.flash("error", err);
-      res.redirect("back");
-    }
-    Blog.find()
-      .where("author.id")
-      .equals(foundUser._id)
-      .exec((err, posts) => {
-        if (err) {
-          req.flash("error", err);
-          res.redirect("back");
-        }
-        res.render("users/show", { user: foundUser, posts: posts });
-      });
-  });
 });
 
 // forgot password
@@ -241,6 +236,30 @@ router.post("/reset/:token", function (req, res) {
       res.redirect("/blog");
     }
   );
+});
+
+// user profile
+router.get("/:id", (req, res) => {
+  User.findById(req.params.id, (err, foundUser) => {
+    if (err) {
+      req.flash(
+        "error",
+        "Sorry, that particular user does not exist. Please try again."
+      );
+      res.redirect("/blog");
+    } else {
+      Blog.find()
+        .where("author.id")
+        .equals(foundUser._id)
+        .exec((err, blogs) => {
+          if (err) {
+            req.flash("error", err);
+            res.redirect("/blog");
+          }
+          res.render("users/show", { user: foundUser, blogs: blogs });
+        });
+    }
+  });
 });
 
 module.exports = router;
