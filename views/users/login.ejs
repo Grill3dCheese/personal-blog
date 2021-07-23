@@ -1,42 +1,41 @@
 <%- include('../partials/blogHeader'); -%>
-  <div class="card">
-    <h1 class="sign-up">Sign In</h1>
-    <hr />
-    <div class="card-body">
-      <form action="/blog/user/login" method="POST" role="form">
-        <fieldset>
-          <div class="blog-form">
-            <i class="fas fa-user"></i>
-            <input
-              class="form-control"
-              type="email"
-              name="username"
-              id="username"
-              placeholder="Email Address"
-              autofocus
-              required
-            />
-          </div>
-          <div class="blog-form">
-            <i class="fas fa-key"></i>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              id="password"
-              placeholder="Password"
-              required
-            />
-          </div>
-          <button class="submitBtn" type="submit">Sign In!</button>
-        </fieldset>
-      </form>
-    </div>
-    <div>
-      <p>Don't have an account?</p>
-      <a href="/blog/user/register">Register!</a>
-    </div>
+<div class="card">
+  <h1 class="sign-up">Sign In</h1>
+  <hr />
+  <div class="card-body">
+    <form action="/blog/user/login" method="POST" role="form">
+      <fieldset>
+        <div class="blog-form">
+          <i class="fas fa-user"></i>
+          <input
+            class="form-control"
+            type="email"
+            name="username"
+            id="username"
+            placeholder="Email Address"
+            autofocus
+            required
+          />
+        </div>
+        <div class="blog-form">
+          <i class="fas fa-key"></i>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button class="submitBtn" type="submit">Sign In!</button>
+      </fieldset>
+    </form>
   </div>
-</section>
+  <div>
+    <p>Don't have an account?</p>
+    <a href="/blog/user/register">Register!</a>
+  </div>
+</div>
 
 <%- include('../partials/blogFooter'); -%>
