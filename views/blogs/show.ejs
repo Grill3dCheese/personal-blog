@@ -6,6 +6,12 @@
             <i class="fas fa-long-arrow-alt-left"></i> 
             <a href="/blog">Go Back</a>
           </div>
+          <% if(currentUser && blog.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+        <div class="edit">
+          <a href="/blog/<%= blog._id %>/edit">Edit</a>
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+        <% } %>
         </div>
           <h1 class="show-title">
               <%= blog.title %>
