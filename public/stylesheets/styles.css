@@ -345,6 +345,7 @@ img {
 
 .back-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .go-back {
@@ -362,6 +363,23 @@ img {
 
 .go-back > a {
   margin-right: 10px;
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+  margin: 30px 10px 25px 0;
+  font-size: 16px;
+  border: 2px solid #356697;
+  border-radius: 20px;
+}
+
+.edit > i {
+  margin: 10px;
+}
+
+.edit > a {
+  margin-left: 10px;
 }
 
 .show-title {
