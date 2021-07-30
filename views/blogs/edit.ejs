@@ -1,6 +1,6 @@
 <%- include('../partials/blogHeader'); -%>
 <div class="card">
-  <h1 class="new-header">Edit "<%= blog.title %>"</h1>
+  <h1 class="edit-header">Edit "<%= blog.title %>"</h1>
   <hr />
   <div class="card-body">
     <form action="/blog/<%= blog._id %>?_method=PUT" method="POST" role="form">
