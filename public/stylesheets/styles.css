@@ -248,16 +248,7 @@ img {
 }
 
 .newBlog-header {
-  font-size: 50px;
-  background: rgb(53, 102, 151);
-  background: linear-gradient(
-    45deg,
-    rgba(53, 102, 151, 1) 20%,
-    rgba(134, 173, 213, 1) 65%
-  );
-  background-clip: inherit;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 32px;
   text-transform: uppercase;
 }
 
@@ -341,7 +332,7 @@ img {
   margin-top: 10px;
 }
 
-/* Blog Show Page */
+/* Blog Show & Edit Pages */
 
 .back-container {
   display: flex;
@@ -383,6 +374,10 @@ img {
 }
 
 .show-title {
+  font-size: 32px;
+}
+
+.edit-header {
   font-size: 32px;
 }
 
