@@ -1,4 +1,10 @@
 <%- include('../partials/blogHeader'); -%>
+<div class="back-container">
+  <div class="go-back">
+    <i class="fas fa-long-arrow-alt-left"></i>
+    <a href="/blog/<%= blog._id %>">Cancel</a>
+  </div>
+</div>
 <div class="card">
   <h1 class="edit-header">Edit "<%= blog.title %>"</h1>
   <hr />
