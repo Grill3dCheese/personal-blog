@@ -7,6 +7,12 @@
             <a href="/blog">Blog</a>
           </div>
           <% if(currentUser && blog.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+        <form action="/blog/<%= blog._id %>?_method=DELETE" method="POST" class="delete">
+          <button class="delete-button">
+            <i class="fas fa-trash-alt"></i>
+            Delete
+          </button>
+        </form>
         <div class="edit">
           <a href="/blog/<%= blog._id %>/edit">Edit</a>
           <i class="fas fa-long-arrow-alt-right"></i>
