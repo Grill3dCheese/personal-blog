@@ -10,9 +10,11 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   dayjs = require("dayjs"),
   Blog = require("./models/blog"),
+  Comment = require("./models/comment"),
   User = require("./models/user"),
   port = 3000,
   blogRoute = require("./routes/blogs"),
+  commentRoute = require("./routes/comments"),
   userRoute = require("./routes/user");
 
 // assign mongoose promise library and connect to database
@@ -33,10 +35,6 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(flash());
-app.use((req, res, next) => {
-  res.locals.dayjs = dayjs;
-  next();
-});
 
 // Passport Configuration
 app.use(
@@ -56,10 +54,12 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   res.locals.error = req.flash("error");
   res.locals.success = req.flash("success");
+  res.locals.dayjs = dayjs;
   next();
 });
 
 app.use("/blog", blogRoute);
+app.use("/blog/:id/comments", commentRoute);
 app.use("/blog/user", userRoute);
 
 app.listen(port, () => {
