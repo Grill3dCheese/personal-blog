@@ -1,0 +1,17 @@
+<%- include('../partials/blogHeader'); -%>
+
+<div>
+  <p>Add New Comment to <%= blog.title %></p>
+  <div class="form">
+    <form action="/blog/<%= blog._id %>/comments" method="POST">
+      <div>
+        <input type="text" name="comment[text]" placeholder="Comment" />
+      </div>
+      <div>
+        <button>Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/blogFooter'); -%>
