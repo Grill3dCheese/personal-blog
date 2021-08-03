@@ -13,3 +13,28 @@ const breakingSpace = () => {
   textArea.value += "\n<br>";
   textArea.focus();
 };
+
+const paragraph = () => {
+  textArea.value += "<p></p>";
+  textArea.focus();
+};
+
+const emphasized = () => {
+  textArea.value += "<em></em>";
+  textArea.focus();
+};
+
+const strong = () => {
+  textArea.value += "<strong></strong>";
+  textArea.focus();
+};
+
+const superText = () => {
+  textArea.value += "<super></super>";
+  textArea.focus();
+};
+
+const horizontalRule = () => {
+  textArea.value += "<hr>";
+  textArea.focus();
+};
