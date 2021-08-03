@@ -29,7 +29,7 @@
               dayjs(blog.createdAt).format("MMM D, YYYY"); %>
             </div>
             <div class="post-comments">
-              <i class="far fa-comment-alt"></i> 2 Comments
+              <i class="far fa-comment-alt"></i> <%= blog.comments.length %> Comments
             </div>
           </div>
       </header>
@@ -38,5 +38,50 @@
           <%- blog.entry %>
       </p>
     </article>
+
+    <!-- Comment Section -->
+<div>
+    <a href="#collapseComment" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseComment">Add New Comment</a>
+
+    <div><p>Comments:</p></div>
+    <div class="collapse" id="collapseComment">
+      <% if(!currentUser) { %>
+        <p>You need to login before you can comment.
+        <a href="/blog/user/login">Click here</a> to go to the login page.
+        </p>
+        <% } %>
+        <% if(currentUser) { %>
+          <p>Leave your comment below:</p>
+          <form id="add-comment-form" action="/blog/<%= blog._id %>/comments" method="POST">
+            <div>
+            <input type="text" disabled value="<%= currentUser.username %>">
+            </div>
+            <div>
+              <textarea name="comment[text]" id="add-comment-form" form="add-comment-form" placeholder="Leave your comment here..." cols="70" rows="5"></textarea>
+            </div>
+            <div>
+              <button>Comment</button>
+            </div>
+          </form>
+          <% } %>
+    </div>
+</div>
+
+<hr>
+
+<% if (blog.comments.length === 0) { %>
+  <p>No comments yet.</p>
+  <% } %>
+<% blog.comments.forEach(function(comment) { %>
+  <div>
+    <strong>
+    <% if (currentUser && currentUser._id.equals(comment.author.id) || currentUser && currentUser.isAdmin) { %>
+      <span style="color: orange" class="far fa-user" aria-hidden="true"></span>
+      <% } else { %>
+        <span class="far fa-user" aria-hidden="true"></span>
+        <% } %>
+        <% }) %>
+      </strong>
+  </div>
 
 <%- include('../partials/blogFooter'); -%>
