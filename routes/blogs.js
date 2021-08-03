@@ -63,7 +63,7 @@ router.get("/new", middleware.isUserAdmin, (req, res) => {
 
 // show blog route
 router.get("/:id", (req, res) => {
-  Blog.findById(req.params.id).exec((err, foundBlog) => {
+  Blog.findById(req.params.id).populate("comments").exec((err, foundBlog) => {
     if (err || !foundBlog) {
       console.log(err);
       req.flash(
