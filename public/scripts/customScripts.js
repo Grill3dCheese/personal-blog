@@ -30,7 +30,7 @@ const strong = () => {
 };
 
 const superText = () => {
-  textArea.value += "<super></super>";
+  textArea.value += "<sup></sup>";
   textArea.focus();
 };
 
