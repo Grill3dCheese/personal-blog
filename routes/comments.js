@@ -27,7 +27,10 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
     } else {
       Comment.create(req.body.comment, function (err, comment) {
         if (err || !comment) {
-          req.flash("error", "Error, something went wrong");
+          req.flash(
+            "error",
+            "Sorry, for some reason that didn't work. Please try again!"
+          );
           console.log(err);
         } else {
           // add username and id to comment
@@ -37,7 +40,7 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
           comment.save();
           blog.comments.push(comment);
           blog.save();
-          req.flash("success", "Successfully added comment");
+          req.flash("success", "Successfully added your comment! Thanks!");
           res.redirect("/blog/" + blog._id);
         }
       });
@@ -91,15 +94,23 @@ router.delete(
   "/:comment_id",
   middleware.checkCommentOwnership,
   function (req, res) {
-    Comment.findByIdAndRemove(req.params.comment_id, function (err) {
-      if (err) {
-        req.flash("error", "Error, something went wrong");
-        res.redirect("back");
-      } else {
-        req.flash("success", "Comment deleted");
+    Blog.findByIdAndUpdate(
+      req.params.id,
+      {
+        $pull: {
+          comments: req.comment.id,
+        },
+      },
+      function (err) {
+        if (err) {
+          console.log(err);
+          req.flash("error", err.message);
+          res.redirect("back");
+        }
+        req.flash("success", "Comment deleted successfully!");
         res.redirect("/blog/" + req.params.id);
       }
-    });
+    );
   }
 );
 
