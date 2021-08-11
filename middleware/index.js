@@ -1,5 +1,6 @@
 const Blog = require("../models/blog"),
-  User = require("../models/user");
+      Comment = require("../models/comment"),
+      User = require("../models/user");
 
 // all the middleware goes here
 var middlewareObj = {};
