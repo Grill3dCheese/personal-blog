@@ -57,7 +57,7 @@
             <input type="text" disabled value="<%= currentUser.username %>">
             </div>
             <div>
-              <textarea name="comment[text]" id="add-comment-form" form="add-comment-form" placeholder="Leave your comment here..." cols="70" rows="5"></textarea>
+              <textarea name="comment[text]" id="add-comment-form" form="add-comment-form" placeholder="Leave your comment here..." cols="70" rows="5" required></textarea>
             </div>
             <div>
               <button>Comment</button>
@@ -80,8 +80,21 @@
       <% } else { %>
         <span class="far fa-user" aria-hidden="true"></span>
         <% } %>
-        <% }) %>
-      </strong>
+        <%= comment.author.username %>,
+    </strong>
+      <span><%= dayjs(comment.createdAt).fromNow(); %>
+      </span>
+      <p>
+        <%- comment.text %>
+      </p>
+      <% if (currentUser && currentUser._id.equals(comment.author.id) || currentUser && currentUser.isAdmin) { %>
+        <a href="#collapseEdit<%= comment._id %>" data-toggle="collapse" aria-expanded="false" aria-controls="collapse<%= comment._id %>" role="button">Edit</a>
+        <form action="/blog/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" id="delete-form">
+        <button>Delete</button>
+        </form>
+        <% } %>
+        <hr>
+        <% }); %>
   </div>
 
 <%- include('../partials/blogFooter'); -%>
