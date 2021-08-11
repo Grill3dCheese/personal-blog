@@ -9,6 +9,7 @@ const express = require("express"),
   methodOverride = require("method-override"),
   bodyParser = require("body-parser"),
   dayjs = require("dayjs"),
+  relativeTime = require("dayjs/plugin/relativeTime"),
   Blog = require("./models/blog"),
   Comment = require("./models/comment"),
   User = require("./models/user"),
@@ -16,6 +17,8 @@ const express = require("express"),
   blogRoute = require("./routes/blogs"),
   commentRoute = require("./routes/comments"),
   userRoute = require("./routes/user");
+
+  dayjs.extend(relativeTime);
 
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
