@@ -63,18 +63,20 @@ router.get("/new", middleware.isUserAdmin, (req, res) => {
 
 // show blog route
 router.get("/:id", (req, res) => {
-  Blog.findById(req.params.id).populate("comments").exec((err, foundBlog) => {
-    if (err || !foundBlog) {
-      console.log(err);
-      req.flash(
-        "error",
-        "Sorry, that particular entry does not exist. Please try again."
-      );
-      res.redirect("/blog");
-    } else {
-      res.render("blogs/show", { blog: foundBlog });
-    }
-  });
+  Blog.findById(req.params.id)
+    .populate("comments")
+    .exec((err, foundBlog) => {
+      if (err || !foundBlog) {
+        console.log(err);
+        req.flash(
+          "error",
+          "Sorry, that particular entry does not exist. Please try again."
+        );
+        res.redirect("/blog");
+      } else {
+        res.render("blogs/show", { blog: foundBlog });
+      }
+    });
 });
 
 // edit post route
