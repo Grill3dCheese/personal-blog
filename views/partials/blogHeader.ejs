@@ -7,12 +7,12 @@
 
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <script
-      src="https://kit.fontawesome.com/ba832eb4c4.js"
+      src="https://kit.fontawesome.com/e433a0d968.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body id="page-top">
-    <main class="container">
+    <div class="container">
       <section class="left-column">
         <nav class="main-nav">
           <a href="https://keithmckenna.com"
@@ -41,6 +41,8 @@
             <p>Full Stack Developer</p>
           </div>
           <% if(currentUser && currentUser.isAdmin == true){ %>
-          <div class="newBlog"><a href="/blog/new"><i class="fas fa-plus-square"></i></a></div>
+          <div class="newBlog">
+            <a href="/blog/new"><i class="fas fa-plus-square"></i></a>
+          </div>
           <% } %>
         </div>
