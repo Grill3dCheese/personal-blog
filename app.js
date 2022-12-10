@@ -18,13 +18,13 @@ const express = require("express"),
   commentRoute = require("./routes/comments"),
   userRoute = require("./routes/user");
 
-  dayjs.extend(relativeTime);
+dayjs.extend(relativeTime);
 
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect("mongodb://localhost:27017/personal_blog", {
+  .connect("mongodb://127.0.0.1/personal_blog", {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
