@@ -29,7 +29,11 @@
               dayjs(blog.createdAt).format("MMM D, YYYY"); %>
             </div>
             <div class="post-comments">
-              <i class="far fa-comment-alt"></i> <%= blog.comments.length %> Comments
+              <i class="far fa-comment-alt"></i> <%= blog.comments.length %>
+              <% if(blog.comments.length === 1) { %> Comment
+                <% } else { %>
+                  Comments
+                  <% } %>
             </div>
           </div>
       </header>
@@ -54,7 +58,7 @@
           <p>Leave your comment below:</p>
           <form id="add-comment-form" action="/blog/<%= blog._id %>/comments" method="POST">
             <div>
-            <input type="text" disabled value="<%= currentUser.username %>">
+            <input type="text" disabled value="<%= currentUser.email %>">
             </div>
             <div>
               <textarea name="comment[text]" id="add-comment-form" form="add-comment-form" placeholder="Leave your comment here..." cols="70" rows="5" required></textarea>
@@ -73,7 +77,7 @@
   <p>No comments yet.</p>
   <% } %>
 <% blog.comments.forEach(function(comment) { %>
-  <div>
+  <div id="comments">
     <strong>
     <% if (currentUser && currentUser._id.equals(comment.author.id) || currentUser && currentUser.isAdmin) { %>
       <span style="color: orange" class="far fa-user" aria-hidden="true"></span>
