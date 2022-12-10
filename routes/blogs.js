@@ -24,7 +24,7 @@ router.get("/", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render("blogs/index", { blogs: blogs, page: "blogs" });
+      res.render("blogs/indexTwo", { blogs: blogs, page: "blogs" });
     }
   });
 });
@@ -36,6 +36,8 @@ router.post("/", middleware.isLoggedIn, parser.single("image"), (req, res) => {
   const author = {
     id: req.user._id,
     name: req.user.name,
+    avatar: req.user.avatar,
+    email: req.user.email,
   };
   const newBlog = {
     title: title,
